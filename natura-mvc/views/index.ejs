@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+    <link rel="stylesheet"href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <title>Natura by Nanis :3 </title>
+</head>
+<body>
+    <ul>
+        <div class="container">
+            <div class="row mb-2">
+                <!--Barra de Navegación-->
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#">Navbar</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                          </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                      </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <!--Formulario-->
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/insert" method="post">
+                              <div class="row">
+                                  <div class="col-lg-6">
+                                      <label for="txtClave" class="form-label">Clave</label>
+                                      <input type="text" id="txtClave" class="form-control" name="clave">
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <label for="txtDescripcion" class="form-label">Descripción</label>
+                                    <input type="text" id="txtDescripcion" class="form-control" name="descripcion">
+                                  </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="txtModelo" class="form-label">Modelo</label>
+                                    <input type="text" id="txtModelo" class="form-control" name="modelo">
+                                </div>
+                                <div class="col-lg-6">
+                                  <label for="txtPrecioCatalogo" class="form-label">Precio Catalogo</label>
+                                  <input type="text" id="txtPrecioCatalogo" class="form-control" name="preciocatalogo">
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6">
+                                  <label for="txtPrecioVenta" class="form-label">Precio Venta</label>
+                                  <input type="text" id="txtPrecioVenta" class="form-control" name="precioventa">
+                              </div>
+                              <div class="col-lg-6">
+                                <label for="txtExistencia" class="form-label">Existencia</label>
+                                <input type="text" id="txtExistencia" class="form-control" name="existencia">
+                              </div>
+                          </div>
+                          <div class="row mt-2">
+                            <div class="col-lg-5">
+                              <button class="btn btn-primary">Guardar</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <table class="table table-primary table-striped">
+                        <!--Tabla con Datos-->
+                        <thead>
+                          <tr>
+                            <th>Clave</th>
+                            <th>Descripcion</th>
+                            <th>Modelo</th>
+                            <th>Existencia</th>
+                            <th colspan="2">Operaciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% articulos.forEach(articulo=>{ %>
+                            <tr>
+                              <td><%= articulo.clave %></td>
+                              <td><%= articulo.descripcion %></td>
+                              <td><%= articulo.modelo %></td>
+                              <td><%= articulo.existencia %></td>
+                              <td>
+                                <a href="/edit/<%= articulo.clave %>" class="btn btn-warning">
+                                  <i class="material-icons">edit</i>
+                                </a>
+                              </td>
+                              <td>
+                                <a href="/delete/<%= articulo.clave %>" class="btn btn-danger">
+                                  <i class="material-icons">delete</i>
+                                </a>
+                              </td>
+                            </tr>
+                          <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </ul>
+</body>
+</html>
